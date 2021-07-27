@@ -7,9 +7,9 @@ public class PizzaDeliveryService {
     //define a private field for the dependancy
     private PizzeriaService pizzeriaService;
 
-    //define a constructor for dependency injection
+    //define a constructor for dependency injection:
     public PizzaDeliveryService(PizzeriaService pservice){
-        pizzeriaService = pservice;
+        this.pizzeriaService = pservice;
     }
 
 

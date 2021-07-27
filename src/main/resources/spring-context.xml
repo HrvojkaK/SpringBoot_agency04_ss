@@ -6,6 +6,7 @@
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context.xsd">
+    <context:property-placeholder location="classpath:application.properties"/>
 
     <!-- Define your Beans here -->
     <bean id="uno"
@@ -28,8 +29,9 @@
     </bean>
 
     <bean id="deliveryDue"
-          class="com.agency04.sbss.pizza.pizzeriaservice.PizzaDeliveryServiceDue">
-          <property name="pizzeriaService" ref="due"/>
+          class="com.agency04.sbss.pizza.pizzeriaservice.PizzaDeliveryService">
+        <!-- set up constructor injection-->
+        <constructor-arg ref="due"/>
     </bean>
 
 
