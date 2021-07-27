@@ -8,5 +8,24 @@
        http://www.springframework.org/schema/context/spring-context.xsd">
 
     <!-- Define your Beans here -->
+    <bean id="uno"
+          class="com.agency04.sbss.pizza.pizzeriaservice.FirstPizzeria">
+          <property name="name" value="Pizzeria Uno"/>
+          <property name="address" value="Street A 1"/>
+    </bean>
+
+    <bean id="deliveryUno"
+          class="com.agency04.sbss.pizza.pizzeriaservice.PizzaDeliveryService">
+          <!-- set up constructor injection-->
+          <constructor-arg ref="uno"/>
+    </bean>
+
+    <bean id="due"
+          class="com.agency04.sbss.pizza.pizzeriaservice.SecondPizzeria">
+          <property name="name" value="${dvar.name}"/>
+          <property name="address" value="${dvar.address}"/>
+          <property name="coupon" value="${dvar.coupon}"/>
+    </bean>
+
 
 </beans>
