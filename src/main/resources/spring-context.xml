@@ -27,11 +27,7 @@
           <property name="coupon" value="${dvar.coupon}"/>
     </bean>
 
-    <bean id="deliveryDue"
-          class="com.agency04.sbss.pizza.pizzeriaservice.PizzaDeliveryServiceDue">
-        <property name="name" ref="due"/>
 
-    </bean>
 
 
 </beans>
