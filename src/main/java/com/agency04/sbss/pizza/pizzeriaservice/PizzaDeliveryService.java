@@ -4,16 +4,15 @@ import com.agency04.sbss.pizza.pizzamodels.*;
 
 public class PizzaDeliveryService {
 
-    ////public String getName(){}
-    //// ...getAddress
-    ////...makePizza
+    //define a private field for the dependancy
+    private PizzeriaService pizzeriaService;
 
-    ////@Override
-    ////public String getName(){
-    ////    return "Trattoria 1";
-    ////}
+    //define a constructor for dependency injection
+    public PizzaDeliveryService(PizzeriaService pservice){
+        pizzeriaService = pservice;
+    }
 
-    //@Override
+
     public String orderPizza(Pizza p){
         String orderDescription = "You'll get " + p.getIngredients()
                 + " on your pizza base.";
