@@ -1,6 +1,8 @@
 package com.agency04.sbss.pizza.pizzeriaservice;
 import com.agency04.sbss.pizza.pizzamodels.Pizza;
+import org.springframework.stereotype.Component;
 
+@Component("due")
 public class SecondPizzeria implements PizzeriaService {
 
     private String name;
