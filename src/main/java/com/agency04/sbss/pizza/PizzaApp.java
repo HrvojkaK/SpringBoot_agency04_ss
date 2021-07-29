@@ -7,16 +7,6 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class PizzaApp {
 
     public static void main(String[] args) {
-        // testing this and that
-        //Pizza p = new FruttiDiMare();
-        //System.out.println(p.getIngredients());
-
-        //PizzeriaService ps = new FirstPizzeria();
-        //System.out.println(ps.makePizza(p));
-
-        //PizzeriaService psDue = new SecondPizzeria();
-        //System.out.println(ps.makePizza(p));
-
 
         //load the spring configuration file
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring-context.xml");
@@ -26,15 +16,13 @@ public class PizzaApp {
         PizzaDeliveryService deliveryDue = context.getBean("deliveryDue", PizzaDeliveryService.class);
 
         //call method on the bean
-        Pizza pizza = new Margherita();
-        System.out.println(deliveryUno.orderPizza(pizza));
-        Pizza p2 = new FruttiDiMare();
-        System.out.println(deliveryDue.orderPizza(p2));
+        Pizza pizzaMargherita = new Margherita();
+        System.out.println(deliveryUno.orderPizza(pizzaMargherita));
+        Pizza pizzaFruttiDiMare = new FruttiDiMare();
+        System.out.println(deliveryDue.orderPizza(pizzaFruttiDiMare));
 
         //close the context
         context.close();
-
-
 
     }
 
