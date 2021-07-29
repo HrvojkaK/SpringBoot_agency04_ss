@@ -7,12 +7,11 @@ import org.springframework.stereotype.Component;
 @Component("delivery")
 public class PizzaDeliveryService {
 
-    //define a private field for the dependancy
+    //define a private field for the dependency
     private PizzeriaService pizzeriaService;
 
-    //define a constructor for dependency injection:
+    //define a constructor for dependency injection: (uno)
     @Autowired
-
     public PizzaDeliveryService(@Qualifier("uno") PizzeriaService pservice){
         this.pizzeriaService = pservice;
     }

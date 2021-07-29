@@ -1,11 +1,15 @@
 package com.agency04.sbss.pizza.pizzeriaservice;
 import com.agency04.sbss.pizza.pizzamodels.Pizza;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component("uno")
 public class FirstPizzeria implements PizzeriaService {
 
+    @Value("Pizzeria Uno")
     private String name;
+
+    @Value("Street A 1")
     private String address;
 
     public void setName(String name){
