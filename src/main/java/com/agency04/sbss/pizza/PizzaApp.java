@@ -12,14 +12,14 @@ public class PizzaApp {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring-context.xml");
 
         //retrieve bean from spring container
-        PizzaDeliveryService deliveryUno = context.getBean("deliveryUno", PizzaDeliveryService.class);
-        PizzaDeliveryService deliveryDue = context.getBean("deliveryDue", PizzaDeliveryService.class);
+        PizzaDeliveryService deliveryUno = context.getBean("delivery", PizzaDeliveryService.class);
+        SecondPizzeria pizzeriaDue = context.getBean("due", SecondPizzeria.class);
 
         //call method on the bean
         Pizza pizzaMargherita = new Margherita();
-        System.out.println(deliveryUno.orderPizza(pizzaMargherita));
-        Pizza pizzaFruttiDiMare = new FruttiDiMare();
-        System.out.println(deliveryDue.orderPizza(pizzaFruttiDiMare));
+        System.out.println(pizzeriaDue.getName() + " is preparing your order. "
+                +  deliveryUno.orderPizza(pizzaMargherita));
+        System.out.println(pizzeriaDue.getCoupon());
 
         //close the context
         context.close();
