@@ -1,10 +1,6 @@
 package com.agency04.sbss.pizza.pizzeriaservice;
 import com.agency04.sbss.pizza.pizzamodels.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Primary;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;

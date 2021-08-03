@@ -1,10 +1,9 @@
 package com.agency04.sbss.pizza.pizzeriaservice;
 import com.agency04.sbss.pizza.pizzamodels.Pizza;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
-@Service //("due")
+
+//@Service("due")  is only needed if the bean due isn't manually created in PizzaConfig
 public class SecondPizzeria implements PizzeriaService {
 
     @Value("${dvar.name}")
