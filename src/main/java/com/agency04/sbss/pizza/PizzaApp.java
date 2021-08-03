@@ -13,13 +13,14 @@ public class PizzaApp {
 
         //retrieve bean from spring container
         PizzaDeliveryService deliveryUno = context.getBean("delivery", PizzaDeliveryService.class);
-        SecondPizzeria pizzeriaDue = context.getBean("due", SecondPizzeria.class);
+        PizzaDeliveryService deliveryUno2 = context.getBean("delivery", PizzaDeliveryService.class);
 
-        //call method on the bean
+        //call methods on the bean
+        System.out.println("memory location of 1st instance of PizzaDeliveyService: " +deliveryUno);
+        System.out.println("memory location of 2nd instance of PizzaDeliveyService: " +deliveryUno2 +"\n");
+
         Pizza pizzaMargherita = new Margherita();
-        System.out.println(pizzeriaDue.getName() + " is preparing your order. "
-                +  deliveryUno.orderPizza(pizzaMargherita));
-        System.out.println(pizzeriaDue.getCoupon());
+        System.out.println(deliveryUno.orderPizza(pizzaMargherita));
 
         //close the context
         context.close();
