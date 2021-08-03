@@ -2,25 +2,22 @@ package com.agency04.sbss.pizza;
 import com.agency04.sbss.pizza.pizzamodels.*;
 import com.agency04.sbss.pizza.pizzeriaservice.*;
 
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
 
 public class PizzaApp {
 
     public static void main(String[] args) {
 
-        //load the spring configuration file
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring-context.xml");
+        //read the spring config class
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(PizzaConfig.class);
 
         //retrieve bean from spring container
-        PizzaDeliveryService deliveryUno = context.getBean("delivery", PizzaDeliveryService.class);
-        PizzaDeliveryService deliveryUno_2 = context.getBean("delivery", PizzaDeliveryService.class);
+        PizzaDeliveryService delivery = context.getBean("delivery", PizzaDeliveryService.class);
 
         //call methods on the bean
-        System.out.println("memory location of 1st instance of PizzaDeliveyService: " +deliveryUno);
-        System.out.println("memory location of 2nd instance of PizzaDeliveyService: " +deliveryUno_2 +"\n");
-
         Pizza pizzaMargherita = new Margherita();
-        System.out.println(deliveryUno.orderPizza(pizzaMargherita));
+        System.out.println(delivery.orderPizza(pizzaMargherita));
 
         //close the context
         context.close();

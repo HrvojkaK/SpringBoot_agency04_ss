@@ -2,8 +2,9 @@ package com.agency04.sbss.pizza.pizzeriaservice;
 import com.agency04.sbss.pizza.pizzamodels.Pizza;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component("uno")
+@Service //("uno")
 public class FirstPizzeria implements PizzeriaService {
 
     @Value("Pizzeria Uno")
