@@ -3,6 +3,8 @@ package com.agency04.sbss.pizza.rest;
 import com.agency04.sbss.pizza.pizzeria.Customer;
 import com.agency04.sbss.pizza.pizzeria.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -17,7 +19,7 @@ public class CustomerRestController {
     @ResponseBody
     public Customer getTheSingleCustomer(@PathVariable String username) {
         Customer customer = customerService.getSingleCustomer(username);
-        return customer;
+         return customer;
     }
 
     @PostMapping("/customer")
@@ -40,4 +42,7 @@ public class CustomerRestController {
         String message = customerService.deleteCustomer(username);
         return message;
     }
+
+
+
 }

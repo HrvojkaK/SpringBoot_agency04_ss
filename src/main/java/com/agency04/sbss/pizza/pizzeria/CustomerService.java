@@ -1,5 +1,6 @@
 package com.agency04.sbss.pizza.pizzeria;
 
+import com.agency04.sbss.pizza.rest.CustomerNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -19,6 +20,7 @@ public class CustomerService {
             if (customer.getUsername().equals(username)) {
                 return customer;
             }
+            else{ throw new CustomerNotFoundException("Custumer with this username does not exist."); }
         }
         return null;
     }
