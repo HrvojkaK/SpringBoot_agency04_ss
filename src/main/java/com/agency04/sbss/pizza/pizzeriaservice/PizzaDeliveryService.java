@@ -32,6 +32,11 @@ public class PizzaDeliveryService {
         System.out.println("(inside of doCleanupStuff destroy method)");
     }
 
+    //need it for PizzeriaDetails
+    public PizzeriaService getPizzeriaService() {
+        return pizzeriaService;
+    }
+
     public String orderPizza(Pizza p){
         String orderDescription = "You'll get " + p.getIngredients()
                 + " on your pizza base.";

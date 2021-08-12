@@ -8,6 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 
+
 @SpringBootApplication
 public class PizzaApp {
 
@@ -27,6 +28,9 @@ public class PizzaApp {
 
         //close the context
         context.close();
+
+
+
 
     }
 

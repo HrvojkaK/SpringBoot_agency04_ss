@@ -1,0 +1,6 @@
+{
+  "customer":{"username":"test", "firstName":"A","lastName":"B"},
+  "pizza":"Margherita",
+  "size":"small",
+  "number":1
+}
