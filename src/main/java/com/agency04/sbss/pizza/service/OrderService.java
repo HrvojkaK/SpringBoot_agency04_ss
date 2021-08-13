@@ -1,6 +1,7 @@
-package com.agency04.sbss.pizza.pizzeria;
+package com.agency04.sbss.pizza.service;
 
-import com.agency04.sbss.pizza.rest.PizzaNotFoundException;
+import com.agency04.sbss.pizza.form.DeliveryOrderForm;
+import com.agency04.sbss.pizza.exception.PizzaNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -13,7 +14,7 @@ public class OrderService {
     private List<String> availablePizza = Arrays.asList("Margherita", "Marinara", "Frutti di Mare");
     private List<String> availableSize = Arrays.asList("small", "regular", "jumbo");
     //
-    public List<DeliveryOrderForm> deliveryOrderForms = new ArrayList<>();
+    private List<DeliveryOrderForm> deliveryOrderForms = new ArrayList<>();
 
     public String addDeliveryOrderForm(DeliveryOrderForm deliveryOrderForm) {
         if(!availablePizza.contains(deliveryOrderForm.getPizza()) || !availableSize.contains(deliveryOrderForm.getSize())){
@@ -23,10 +24,8 @@ public class OrderService {
         else {
             this.deliveryOrderForms.add(deliveryOrderForm);
         }
-        return "Order received."; //or? exc.
+        return "Order received.";
     }
 
-    public List<DeliveryOrderForm> getAllDeliveryOrderForms() {
-        return deliveryOrderForms;
-    }
+    public List<DeliveryOrderForm> getAllDeliveryOrderForms() { return deliveryOrderForms; }
 }

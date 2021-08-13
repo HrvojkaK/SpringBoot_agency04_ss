@@ -1,13 +1,13 @@
-package com.agency04.sbss.pizza.rest;
+package com.agency04.sbss.pizza.exception;
 
-public class PizzaErrorResponse {
+public class CustomerErrorResponse {
     private int status;
     private String message;
     private long timeStamp;
 
-    public PizzaErrorResponse(){}
+    public CustomerErrorResponse(){}
 
-    public PizzaErrorResponse(int status, String message, long timeStamp){
+    public CustomerErrorResponse(int status, String message, long timeStamp){
         this.status = status;
         this.message = message;
         this.timeStamp = timeStamp;
@@ -21,4 +21,6 @@ public class PizzaErrorResponse {
 
     public long getTimeStamp(){ return this.timeStamp; }
     public void setTimeStamp(long username) { this.timeStamp= timeStamp;}
+
+
 }

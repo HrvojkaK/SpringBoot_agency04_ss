@@ -1,4 +1,4 @@
-package com.agency04.sbss.pizza.pizzeria;
+package com.agency04.sbss.pizza.model;
 
 
 public class Customer {
@@ -21,6 +21,5 @@ public class Customer {
     public String getLastName() { return lastName; }
     public void setFirstName(String firstName) { this.firstName = firstName; }
     public void setLastName(String lastName) { this.lastName = lastName; }
-
 
 }

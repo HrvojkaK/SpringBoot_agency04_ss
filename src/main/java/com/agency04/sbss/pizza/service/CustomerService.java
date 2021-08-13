@@ -1,6 +1,7 @@
-package com.agency04.sbss.pizza.pizzeria;
+package com.agency04.sbss.pizza.service;
 
-import com.agency04.sbss.pizza.rest.CustomerNotFoundException;
+import com.agency04.sbss.pizza.model.Customer;
+import com.agency04.sbss.pizza.exception.CustomerNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -20,7 +21,7 @@ public class CustomerService {
             if (customer.getUsername().equals(username)) {
                 return customer;
             }
-            else{ throw new CustomerNotFoundException("Custumer with this username does not exist."); }
+            else{ throw new CustomerNotFoundException("Customer with this username does not exist."); }
         }
         return null;
     }
@@ -51,5 +52,6 @@ public class CustomerService {
         }
         return "This username does not exist";
     }
+
 
 }

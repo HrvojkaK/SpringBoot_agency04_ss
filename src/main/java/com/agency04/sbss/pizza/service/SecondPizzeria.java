@@ -1,10 +1,17 @@
-package com.agency04.sbss.pizza.pizzeriaservice;
-import com.agency04.sbss.pizza.pizzamodels.Pizza;
+package com.agency04.sbss.pizza.service;
+import com.agency04.sbss.pizza.model.Pizza;
 import org.springframework.beans.factory.annotation.Value;
+
+import java.util.Arrays;
+import java.util.List;
 
 
 //@Service("due")  is only needed if the bean due isn't manually created in PizzaConfig
 public class SecondPizzeria implements PizzeriaService {
+
+    private List<String> pizzaType = Arrays.asList("Margherita", "Marinara", "Frutti di Mare");
+    private List<String> size = Arrays.asList("small", "regular", "jumbo");
+
 
     @Value("${dvar.name}")
     private String name;
@@ -36,6 +43,12 @@ public class SecondPizzeria implements PizzeriaService {
     public String getAddress(){
         return address;
     }
+
+    @Override
+    public List<String> getPizzaType() { return pizzaType; }
+
+    @Override
+    public List<String> getSize() { return size; }
 
     public String getCoupon(){
         return "On your next purchase, you can use this discount code: " + coupon;

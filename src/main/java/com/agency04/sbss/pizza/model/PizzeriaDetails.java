@@ -1,8 +1,5 @@
-package com.agency04.sbss.pizza.pizzeria;
+package com.agency04.sbss.pizza.model;
 
-import org.springframework.stereotype.Service;
-
-//@Service
 public class PizzeriaDetails {
     private String name;
     private String address;

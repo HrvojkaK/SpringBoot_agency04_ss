@@ -1,4 +1,6 @@
-package com.agency04.sbss.pizza.pizzeria;
+package com.agency04.sbss.pizza.form;
+
+import com.agency04.sbss.pizza.model.Customer;
 
 public class DeliveryOrderForm {
     private Customer customer;

@@ -1,5 +1,5 @@
-package com.agency04.sbss.pizza.pizzeriaservice;
-import com.agency04.sbss.pizza.pizzamodels.*;
+package com.agency04.sbss.pizza.service;
+import com.agency04.sbss.pizza.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +11,9 @@ public class PizzaDeliveryService {
 
     //define a private field for the dependency
     private PizzeriaService pizzeriaService;
+
+    //no arg constructor
+    public PizzaDeliveryService(){}
 
     //define a constructor for dependency injection: (uno / due)
     @Autowired
@@ -42,4 +45,5 @@ public class PizzaDeliveryService {
                 + " on your pizza base.";
         return orderDescription;
     }
+
 }
