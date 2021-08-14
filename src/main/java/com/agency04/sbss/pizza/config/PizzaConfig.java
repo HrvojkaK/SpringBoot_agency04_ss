@@ -1,11 +1,10 @@
 package com.agency04.sbss.pizza.config;
-import com.agency04.sbss.pizza.pizzeriaservice.FirstPizzeria;
-import com.agency04.sbss.pizza.pizzeriaservice.PizzeriaService;
-import com.agency04.sbss.pizza.pizzeriaservice.SecondPizzeria;
+import com.agency04.sbss.pizza.service.PizzeriaService;
+import com.agency04.sbss.pizza.service.SecondPizzeria;
 import org.springframework.context.annotation.*;
 
+
 @Configuration
-@ComponentScan("com.agency04.sbss.pizza.pizzeriaservice")
 @PropertySource("classpath:application.properties")
 public class PizzaConfig {
 

@@ -1,4 +1,4 @@
-package com.agency04.sbss.pizza.pizzamodels;
+package com.agency04.sbss.pizza.model;
 import java.util.*;
 
 public class Margherita implements Pizza {
