@@ -1,5 +1,6 @@
 package com.agency04.sbss.pizza.rest;
 
+import com.agency04.sbss.pizza.model.Menu;
 import com.agency04.sbss.pizza.model.PizzeriaDetails;
 import com.agency04.sbss.pizza.service.PizzaDeliveryService;
 import com.agency04.sbss.pizza.service.PizzeriaService;
@@ -22,20 +23,21 @@ public class PizzeriaRestController {
 
     @GetMapping("/pizzeria")
     @ResponseBody
-    public String sayPizzeriaDetails(){
+    public PizzeriaDetails getPizzeriaDetails() {
         PizzeriaDetails pizzeriaDetails = new PizzeriaDetails();
-        //set the name, address collected from PizzaDeliveryService
         pizzeriaDetails.setName(pizzeriaService.getName());
         pizzeriaDetails.setAddress(pizzeriaService.getAddress());
-        return "Pizzeria making the order:  "+pizzeriaDetails.getName() +
-                ", at the address: " + pizzeriaDetails.getAddress();
+        return pizzeriaDetails;
     }
 
 
     @GetMapping("/pizzeria/menu")
     @ResponseBody
-    public String printMenu(){
-        return "Pizzas: "+ pizzeriaService.getPizzaType() + " and sizes: " + pizzeriaService.getSize();
+    public Menu getMenu() {
+        Menu menu = new Menu();
+        menu.setPizzaType(pizzeriaService.getPizzaType());
+        menu.setSize(pizzeriaService.getSize());
+        return menu;
     }
 
 }

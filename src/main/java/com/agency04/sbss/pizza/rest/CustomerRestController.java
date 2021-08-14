@@ -14,6 +14,7 @@ public class CustomerRestController {
     @Autowired
     private CustomerService customerService;
 
+
     @GetMapping("/{username}")
     @ResponseBody
     public Customer getTheSingleCustomer(@PathVariable String username) {

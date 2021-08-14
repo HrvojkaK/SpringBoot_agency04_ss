@@ -21,9 +21,8 @@ public class CustomerService {
             if (customer.getUsername().equals(username)) {
                 return customer;
             }
-            else{ throw new CustomerNotFoundException("Customer with this username does not exist."); }
         }
-        return null;
+        throw new CustomerNotFoundException("Customer with this username does not exist.");
     }
 
     public String addCustomer(Customer customer) {
