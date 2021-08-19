@@ -1,25 +1,57 @@
 package com.agency04.sbss.pizza.model;
 
+import javax.persistence.*;
+import java.util.List;
 
-public class Customer {
+@Entity
+@Table(name = "customer")
+public class Customer
+{
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
+    @Column(name = "username")
     private String username;
-    private String firstName;
-    private String lastName;
 
-    public Customer(){}
+    @OneToOne
+    @JoinColumn(name = "customerDetails_id", referencedColumnName = "id") //
+    private CustomerDetails customerDetails;
 
-    public Customer(String username, String firstName, String lastName) {
-        this.username = username;
-        this.firstName = firstName;
-        this.lastName = lastName;
+    @OneToMany(mappedBy = "customer")
+    private List<Delivery> deliveries;
+
+    public Customer(int id, String username, CustomerDetails customerDetails){
+        this.id=id;
+        this.username=username;
+        this.customerDetails = customerDetails;
     }
-    public String getUsername(){ return this.username; }
-    public void setUsername(String username) { this.username = username;}
+    public Customer() {}
 
-    public String getFirstName() { return firstName; }
-    public String getLastName() { return lastName; }
-    public void setFirstName(String firstName) { this.firstName = firstName; }
-    public void setLastName(String lastName) { this.lastName = lastName; }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public List<Delivery> getDeliveries() {
+        return deliveries;
+    }
+
+    public void setDeliveries(List<Delivery> deliveries) {
+        this.deliveries = deliveries;
+    }
+
 
 }

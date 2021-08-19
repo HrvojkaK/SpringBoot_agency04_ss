@@ -1,3 +1,6 @@
+
+//just for /api/pizzera/menu
+
 package com.agency04.sbss.pizza.model;
 
 import java.util.List;

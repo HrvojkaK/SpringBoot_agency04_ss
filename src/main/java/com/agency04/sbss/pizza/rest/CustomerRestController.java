@@ -1,46 +1,57 @@
 package com.agency04.sbss.pizza.rest;
 
+import com.agency04.sbss.pizza.exception.CustomerNotFoundException;
 import com.agency04.sbss.pizza.model.Customer;
 import com.agency04.sbss.pizza.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 
 
 @RestController
 @RequestMapping("/api/customer")
 public class CustomerRestController {
-    //inject dependency for CustomerService
+
     @Autowired
     private CustomerService customerService;
 
-
-    @GetMapping("/{username}")
+    @GetMapping("/{id}")
     @ResponseBody
-    public Customer getTheSingleCustomer(@PathVariable String username) {
-        Customer customer = customerService.getSingleCustomer(username);
-         return customer;
+    public Customer findById(@PathVariable int id) {
+        Customer customer = customerService.findById(id);
+        return customer;
+    }
+
+    @GetMapping("/list")
+    public List<Customer> findAll()
+    {
+        return customerService.findAll();
     }
 
     @PostMapping("")
     @ResponseBody
     public String addTheCustomer(@RequestBody Customer customer) {
-        String message = customerService.addCustomer(customer);
-        return message;
+        customerService.save(customer);
+        return "Account created";
     }
 
     @PutMapping("")
     @ResponseBody
     public String updateTheCustomer(@RequestBody Customer customer){
-        String message = customerService.updateCustomer(customer);
-        return message;
+        Customer tempCustomer = customerService.findById(customer.getId());
+        if(tempCustomer == null) {
+            throw new CustomerNotFoundException("No such id");
+        }
+        customerService.save(customer);
+        return "Updated";
     }
 
-    @DeleteMapping("/{username}")
+    @DeleteMapping("/{id}")
     @ResponseBody
-    public String deleteTheCustomer(@PathVariable String username){
-        String message = customerService.deleteCustomer(username);
-        return message;
+    public String deleteTheCustomer(@PathVariable int id){
+        customerService.deleteById(id);
+        return "Deleted";
     }
 
 }

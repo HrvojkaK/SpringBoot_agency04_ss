@@ -1,24 +1,8 @@
-package com.agency04.sbss.pizza.model;
+package com.agency04.sbss.pizza.model.pizzas;
+import com.agency04.sbss.pizza.model.Pizza;
+
 import javax.persistence.Entity;
 import java.util.*;
-
-//public class FruttiDiMare implements Pizza {
-//    private final String name = "Frutti di mare";
-//    private final List<String> ingredients = Arrays.asList("Tomato sauce", "Seafood");
-//
-//    @Override
-//    public String getName(){
-//        return name;
-//    }
-//
-//    @Override
-//    public List<String> getIngredients(){
-//        return ingredients;
-//    }
-//}
-
-//import javax.persistence.Entity;
-//import java.util.List;
 
 @Entity
 public class FruttiDiMare extends Pizza {

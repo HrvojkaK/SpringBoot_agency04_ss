@@ -1,4 +1,6 @@
-package com.agency04.sbss.pizza.model;
+package com.agency04.sbss.pizza.model.pizzas;
+import com.agency04.sbss.pizza.model.Pizza;
+
 import javax.persistence.Entity;
 import java.util.*;
 

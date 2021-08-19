@@ -1,56 +1,40 @@
 package com.agency04.sbss.pizza.service;
 
 import com.agency04.sbss.pizza.model.Customer;
+import com.agency04.sbss.pizza.repository.CustomerRepository;
 import com.agency04.sbss.pizza.exception.CustomerNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CustomerService {
+    private CustomerRepository customerRepository;
 
-    public List<Customer> customers = new ArrayList<>(Arrays.asList(
-            new Customer("Marko1", "Marko","Horvat"),
-            new Customer("Ana1", "Ana","Kovac")));
+    public CustomerService(CustomerRepository theCustomerRepository) {
+        customerRepository = theCustomerRepository;
+    }
 
+    public List<Customer> findAll() {
+        return customerRepository.findAll();
+    }
 
-    public Customer getSingleCustomer(String username) {
-        for (Customer customer : customers) {
-            if (customer.getUsername().equals(username)) {
-                return customer;
-            }
+    public Customer findById(int theId) {
+        Optional<Customer> customer = customerRepository.findById(theId);
+        if (!customer.isPresent()) {
+            throw new CustomerNotFoundException("No such id");
         }
-        throw new CustomerNotFoundException("Customer with this username does not exist.");
+        return customer.get();
     }
 
-    public String addCustomer(Customer customer) {
-        this.customers.add(customer);
-        return "Created account";
+    public void save(Customer theCustomer) {
+        customerRepository.save(theCustomer);
     }
 
-    public String updateCustomer(Customer thecustomer) {
-        String theusername = thecustomer.getUsername();
-        for (Customer customer : customers) {
-            if (customer.getUsername().equals(theusername)) {
-                customer.setFirstName(thecustomer.getFirstName());
-                customer.setLastName(thecustomer.getLastName());
-                return "Customer updated";
-            }
-        }
-        return "Customer with such username not found";
+    public void deleteById(int theId) {
+        customerRepository.deleteById(theId);
     }
-
-    public String deleteCustomer(String username) {
-        for(Customer customer: customers) {
-            if(customer.getUsername().equals(username)){
-                customers.remove(customer);
-                return "Deleted";
-            }
-        }
-        return "This username does not exist";
-    }
-
 
 }
+
