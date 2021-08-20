@@ -27,8 +27,6 @@ public class PizzaOrder {
         this.quantity = quantity;
         this.pizza = pizza;
         this.size = size;
-
-
     }
 
     public int getId() { return id; }

@@ -1,7 +1,6 @@
 package com.agency04.sbss.pizza.service;
 
 import com.agency04.sbss.pizza.exception.CustomerNotFoundException;
-import com.agency04.sbss.pizza.exception.PizzaNotFoundException;
 import com.agency04.sbss.pizza.form.DeliveryOrderForm;
 import com.agency04.sbss.pizza.model.Customer;
 import com.agency04.sbss.pizza.model.Delivery;
@@ -15,9 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 
 
 @Service
@@ -39,33 +36,24 @@ public class DeliveryService {
     @Autowired
     private PizzaRepository pizzaRepository;
 
-    private List<String> availablePizza = Arrays.asList("Margherita", "Marinara", "Frutti di Mare");
     private List<PizzaOrder> pizzaOrders = new ArrayList<>();
-
 
 
     public List<Delivery> get(){
         return deliveryRepository.findAll();
     }
 
-
     public String makeOrder(DeliveryOrderForm deliveryOrderForm) {
-
-  //      this.pizzaOrders.add(deliveryOrderForm.getPizzaOrder());
-
         PizzaOrder pizzaOrder = new PizzaOrder();
         pizzaOrder.setPizza(pizzaRepository.getByName(deliveryOrderForm.getPizza()));
         pizzaOrder.setQuantity(deliveryOrderForm.getQuantity());
         pizzaOrder.setSize(Size.MEDIUM);
         pizzaOrderRepository.save(pizzaOrder);
-
         this.pizzaOrders.add(pizzaOrder);
-
 
         Customer customer = customerRepository.getById(deliveryOrderForm.getCustomer().getId());
         if (customer!=null) {
             deliveryOrderForm.setCustomer(customer);
-
             deliveryRepository.save(new Delivery(pizzaOrders,customer));
             return "Delivery received!";
         }

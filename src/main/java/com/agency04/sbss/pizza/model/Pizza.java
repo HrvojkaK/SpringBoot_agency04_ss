@@ -18,7 +18,7 @@ public class Pizza
     private List<String> ingredients;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "pizza", cascade = CascadeType.ALL) //
+    @OneToMany(mappedBy = "pizza", cascade = CascadeType.ALL)
     private List<PizzaOrder> pizzaOrders;
 
     public Pizza(){}
