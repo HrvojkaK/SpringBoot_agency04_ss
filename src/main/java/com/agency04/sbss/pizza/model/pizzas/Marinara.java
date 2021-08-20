@@ -1,7 +1,11 @@
-package com.agency04.sbss.pizza.model;
+package com.agency04.sbss.pizza.model.pizzas;
+import com.agency04.sbss.pizza.model.Pizza;
+
+import javax.persistence.Entity;
 import java.util.*;
 
-public class Marinara implements Pizza {
+@Entity
+public class Marinara extends Pizza {
     private final String name = "Marinara";
     private final List<String> ingredients = Arrays.asList("Tomato sauce", "Garlic", "Basil");
 
