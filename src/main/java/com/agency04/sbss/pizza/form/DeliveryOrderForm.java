@@ -12,9 +12,9 @@ public class DeliveryOrderForm {
 
     public DeliveryOrderForm(){}
 
-    public DeliveryOrderForm(PizzaOrder pizzaOrder, Customer customer) {
+    public DeliveryOrderForm(int quantity,String size, String pizza, Customer customer){//PizzaOrder pizzaOrder, Customer customer) {
         this.customer = customer;
-        this.pizzaOrder = pizzaOrder;
+       // this.pizzaOrder = pizzaOrder;
         this.quantity = quantity;
         this.pizza = pizza;
         this.size = size;

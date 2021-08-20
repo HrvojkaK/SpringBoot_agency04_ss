@@ -14,8 +14,8 @@ public class Customer
     @Column(name = "username")
     private String username;
 
-    @OneToOne
-    @JoinColumn(name = "customerDetails_id", referencedColumnName = "id") //
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "customerDetails_id", referencedColumnName = "id")
     private CustomerDetails customerDetails;
 
     @OneToMany(mappedBy = "customer")
@@ -43,6 +43,14 @@ public class Customer
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public CustomerDetails getCustomerDetails() {
+        return customerDetails;
+    }
+
+    public void setCustomerDetails(CustomerDetails customerDetails) {
+        this.customerDetails = customerDetails;
     }
 
     public List<Delivery> getDeliveries() {

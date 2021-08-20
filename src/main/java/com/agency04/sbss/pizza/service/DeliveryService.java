@@ -43,7 +43,15 @@ public class DeliveryService {
 
 
     public String makeOrder(DeliveryOrderForm deliveryOrderForm) {
+        //
+//       public void addDeliveryOrderForm(DeliveryOrderForm deliveryOrderForm) {
+//            if(!availablePizza.contains(deliveryOrderForm.getPizza()) {
+//                throw new PizzaNotFoundException("Invalid order. Pizzas available: " +availablePizza);
+//            }
+//            else{
         this.pizzaOrders.add(deliveryOrderForm.getPizzaOrder());
+        //           }
+
         Customer customer = customerRepository.getById(deliveryOrderForm.getCustomer().getId());
         if (customer!=null) {
             deliveryOrderForm.setCustomer(customer);

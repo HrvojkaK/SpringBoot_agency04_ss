@@ -2,13 +2,13 @@ package com.agency04.sbss.pizza;
 
 
 import com.agency04.sbss.pizza.model.*;
+import com.agency04.sbss.pizza.model.pizzas.FruttiDiMare;
 import com.agency04.sbss.pizza.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
-import java.util.Arrays;
 
 @Component
 class Initialize implements ApplicationRunner {
@@ -31,9 +31,14 @@ class Initialize implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
 
-    //    CustomerDetails customerDetails =customerDetailsRepository.save(new CustomerDetails(1, "Marko", "Mar", "12345"));
-      //  CustomerDetails customerDetails =new CustomerDetails(1,"Marko", "Mar", "12345");
+        CustomerDetails customerDetails =new CustomerDetails(1,"Marko", "Mar", "12345");
+        Customer customer = new Customer();
+        customer.setUsername("mm");
+        customer.setCustomerDetails(customerDetails);
+        customerRepository.save(new Customer(1,"MM", null));
 
-//        customerRepository.save(new Customer(1,"MM", null));//customerDetails));
+        Pizza pizza = new FruttiDiMare();
+        pizzaRepository.save(pizza);
+
     }
 }
