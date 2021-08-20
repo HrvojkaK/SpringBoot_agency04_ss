@@ -26,6 +26,7 @@ public class Delivery {
 
     public Delivery(){}
 
+
     public Delivery(List<PizzaOrder> pizzaOrders, Customer customer){
         this.pizzaOrders = pizzaOrders;
         this.customer = customer;
