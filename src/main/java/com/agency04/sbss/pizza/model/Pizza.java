@@ -1,5 +1,7 @@
 package com.agency04.sbss.pizza.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -15,6 +17,7 @@ public class Pizza
     @ElementCollection
     private List<String> ingredients;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "pizza")
     private List<PizzaOrder> pizzaOrders;
 

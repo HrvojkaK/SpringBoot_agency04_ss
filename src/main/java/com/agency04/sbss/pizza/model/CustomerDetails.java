@@ -1,5 +1,7 @@
 package com.agency04.sbss.pizza.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -17,6 +19,7 @@ public class CustomerDetails {
     @Column
     private String phone;
 
+    @JsonIgnore
     @OneToOne(mappedBy = "customerDetails")
     Customer customer;
 
