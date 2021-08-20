@@ -3,6 +3,7 @@ package com.agency04.sbss.pizza;
 
 import com.agency04.sbss.pizza.model.*;
 import com.agency04.sbss.pizza.model.pizzas.FruttiDiMare;
+import com.agency04.sbss.pizza.model.pizzas.Margherita;
 import com.agency04.sbss.pizza.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
@@ -39,6 +40,8 @@ class Initialize implements ApplicationRunner {
 
         Pizza pizza = new FruttiDiMare();
         pizzaRepository.save(pizza);
+        Pizza pizza2 = new Margherita();
+        pizzaRepository.save(pizza2);
 
     }
 }

@@ -6,7 +6,7 @@ import java.util.*;
 
 @Entity
 public class FruttiDiMare extends Pizza {
-    private String name = "Frutti di mare";
+    private String name = "Frutti di Mare";
     private List<String> ingredients = Arrays.asList("Tomato sauce", "Seafood");
 
     @Override
